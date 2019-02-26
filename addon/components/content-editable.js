@@ -81,7 +81,11 @@ export default Component.extend({
     if (value === undefined || value === null) {
       this.element.innerText = '';
     } else {
-      this.element.innerText = value;
+      if(this.get('type') === 'html'){
+        this.$().html(this.get('value'));
+      }else{
+        this.element.innerText = value;
+      }
     }
   },
 
